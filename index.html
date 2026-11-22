@@ -15,7 +15,7 @@
 
   <style>
     /* =========================================
-1. 配色變數（莫蘭迪霧霾藍 × 馬卡龍奶油黃，60-30-10 法則）
+       1. 配色變數（莫蘭迪霧霾藍 × 馬卡龍奶油黃，60-30-10 法則）
        ========================================= */
     :root {
       --bg-outer: #E8EEF2;
@@ -89,7 +89,7 @@
     }
 
     /* =========================================
-2. 活頁筆記本外框、堆疊紙張與金屬線圈
+       2. 活頁筆記本外框、堆疊紙張與金屬線圈
        ========================================= */
     .notebook-stage {
       perspective: 1800px;
@@ -238,7 +238,7 @@
     }
 
     /* =========================================
-3. 3D 活頁筆記本立體翻頁動畫
+       3. 3D 活頁筆記本立體翻頁動畫
        ========================================= */
     .flipping-sheet {
       position: absolute;
@@ -399,7 +399,7 @@
     }
 
     /* =========================================
-4. 測驗印章與語音錄音特效
+       4. 測驗印章與語音錄音特效
        ========================================= */
     @keyframes stampDrop {
       0% {
@@ -435,7 +435,7 @@
     }
 
     /* =========================================
-5. 圖片樣式、膳膳角色動畫與行事曆刪除線
+       5. 圖片樣式、膳膳角色動畫與行事曆刪除線
        ========================================= */
     .club-logo {
       width: 100%;
@@ -460,35 +460,6 @@
       transition: transform 0.3s ease;
     }
 
-    /* 備用 SVG 的動態效果 */
-    .mascot-stage[data-state="idle"] .mascot-svg { animation: mascotFloat 2.8s ease-in-out infinite; }
-    .mascot-stage[data-state="thinking"] .mascot-svg { animation: mascotThink 1.4s ease-in-out infinite; }
-    .mascot-stage[data-state="waving"] .mascot-svg { animation: mascotBounce 0.6s ease-in-out infinite; }
-    .mascot-stage[data-state="surprised"] .mascot-svg { animation: mascotShake 0.35s ease-in-out infinite; }
-    .mascot-stage[data-state="sleepy"] .mascot-svg { animation: mascotSleep 3.2s ease-in-out infinite; }
-
-    @keyframes mascotFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
-    @keyframes mascotThink {
-      0%, 100% { transform: rotate(-4deg) translateY(0); }
-      50% { transform: rotate(4deg) translateY(-3px); }
-    }
-    @keyframes mascotBounce {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-9px) scale(1.03); }
-    }
-    @keyframes mascotShake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-4px); }
-      75% { transform: translateX(4px); }
-    }
-    @keyframes mascotSleep {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(5px) rotate(5deg); }
-    }
-
     /* 行事曆已結束活動（自動刪除線） */
     .calendar-event.event-ended {
       opacity: 0.55;
@@ -498,10 +469,10 @@
       text-decoration-thickness: 1.5px;
       color: var(--text-muted);
     }
+
     /* =========================================
-6. 無障礙：鍵盤焦點外框與跳到主要內容
+       6. 無障礙：鍵盤焦點外框與跳到主要內容
        ========================================= */
-    /* 只有用鍵盤 Tab 操作時才顯示明顯的橘黃色粗框線 */
     a:focus-visible,
     button:focus-visible,
     input:focus-visible,
@@ -515,8 +486,9 @@
       outline-color: #FBBF24 !important;
       box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.3) !important;
     }
+
     /* =========================================
-7. 最新消息焦點框強化、操作指引與右下角音效控制
+       7. 最新消息焦點框強化、操作指引與右下角音效控制
        ========================================= */
     #news-list button:focus-visible {
       outline: 3px solid #B45309 !important;
@@ -536,7 +508,7 @@
     .floating-corner-btn:hover {
       transform: translateY(-2px);
     }
-    /* 跳到主要內容（平時藏在畫面上方，按 Tab 鍵就會滑下來） */
+
     .skip-link {
       position: fixed;
       top: -100px;
@@ -558,14 +530,13 @@
 </head>
 
 <body class="flex flex-col">
-<a href="#main-container" class="skip-link">跳到主要內容</a>
+  <a href="#main-container" class="skip-link">跳到主要內容</a>
 
   <!-- =========================================
        頂部導覽列
        ========================================= -->
   <header id="site-header" class="sticky top-0 z-40 border-b backdrop-blur-md transition-colors" style="background-color: var(--bg-paper); border-color: var(--border-line);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-      <!-- 左側：社團社徽 Logo + 標題 -->
       <button type="button" onclick="navigateTo('home')" class="flex items-center gap-2.5 text-left group focus:outline-none">
         <div class="w-10 h-10 rounded-full flex items-center justify-center shadow-sm overflow-hidden transition-transform group-hover:scale-105 p-0.5 flex-shrink-0" style="background-color: var(--primary);">
           <img
@@ -587,7 +558,6 @@
         </div>
       </button>
 
-      <!-- 右側：電腦版按鈕 + 無障礙控制 -->
       <div class="flex items-center gap-2">
         <nav class="hidden md:flex items-center gap-2 mr-1" aria-label="主導覽列">
           <button type="button" id="back-nav-btn" onclick="goBack()" aria-label="返回上一頁" class="hidden nav-pill px-3.5 py-1.5 rounded-full text-sm font-medium border transition-all hover:opacity-85 flex items-center gap-1" style="border-color: var(--border-line); background-color: var(--bg-card); color: var(--text-main);">
@@ -669,14 +639,12 @@
              VIEW 1: 首頁 (Home)
              =================================== -->
         <section id="view-home" class="page-view active space-y-8">
-          <!-- 活動照片輪播區 -->
           <div>
             <h2 class="notebook-heading text-lg">
               <span>📸</span> 活動照片
             </h2>
             <div id="carousel-wrapper" class="relative rounded-2xl overflow-hidden border shadow-sm" style="border-color: var(--border-line); background-color: var(--bg-card);">
               <div id="carousel-track" class="flex transition-transform duration-500 ease-out">
-                <!-- Slide 1 -->
                 <div class="w-full flex-shrink-0 relative h-[220px] sm:h-[300px] md:h-[340px] overflow-hidden">
                   <img
                     src="images/slide1.jpg"
@@ -685,19 +653,11 @@
                     onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
                   />
                   <div class="hidden w-full h-full p-6 sm:p-10 flex flex-col items-center justify-center text-center" style="background: linear-gradient(135deg, var(--primary-soft), var(--bg-card));">
-                    <svg class="w-16 h-16 mb-3" style="color: var(--primary);" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <rect x="14" y="10" width="36" height="44" rx="5"></rect>
-                      <path d="M24 10V7h16v3"></path>
-                      <path d="M23 26l4 4 8-8"></path>
-                      <line x1="23" y1="38" x2="41" y2="38"></line>
-                      <line x1="23" y1="45" x2="35" y2="45"></line>
-                    </svg>
                     <p class="font-bold text-base sm:text-lg" style="color: var(--text-main);">活動照片 1 — 學餐衛生稽核實錄</p>
                     <p class="text-xs sm:text-sm mt-1.5 px-3 py-1 rounded-full font-mono" style="background-color: var(--primary-soft); color: var(--text-muted);">請放入圖片：images/slide1.jpg</p>
                   </div>
                 </div>
 
-                <!-- Slide 2 -->
                 <div class="w-full flex-shrink-0 relative h-[220px] sm:h-[300px] md:h-[340px] overflow-hidden">
                   <img
                     src="images/slide2.jpg"
@@ -706,17 +666,11 @@
                     onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
                   />
                   <div class="hidden w-full h-full p-6 sm:p-10 flex flex-col items-center justify-center text-center" style="background: linear-gradient(135deg, rgba(236, 209, 137, 0.25), var(--bg-card));">
-                    <svg class="w-16 h-16 mb-3" style="color: var(--primary);" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <circle cx="32" cy="34" r="18"></circle>
-                      <path d="M22 34c2-6 8-10 10-10s8 4 10 10"></path>
-                      <path d="M10 22v24M54 22v24"></path>
-                    </svg>
                     <p class="font-bold text-base sm:text-lg" style="color: var(--text-main);">活動照片 2 — 健康飲食 DIY 社課</p>
                     <p class="text-xs sm:text-sm mt-1.5 px-3 py-1 rounded-full font-mono" style="background-color: var(--primary-soft); color: var(--text-muted);">請放入圖片：images/slide2.jpg</p>
                   </div>
                 </div>
 
-                <!-- Slide 3 -->
                 <div class="w-full flex-shrink-0 relative h-[220px] sm:h-[300px] md:h-[340px] overflow-hidden">
                   <img
                     src="images/slide3.jpg"
@@ -725,12 +679,6 @@
                     onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
                   />
                   <div class="hidden w-full h-full p-6 sm:p-10 flex flex-col items-center justify-center text-center" style="background: linear-gradient(135deg, rgba(217, 138, 138, 0.18), var(--bg-card));">
-                    <svg class="w-16 h-16 mb-3" style="color: var(--primary);" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <circle cx="22" cy="24" r="7"></circle>
-                      <circle cx="42" cy="24" r="7"></circle>
-                      <path d="M10 48c0-7 5-12 12-12s12 5 12 12"></path>
-                      <path d="M30 48c0-7 5-12 12-12s12 5 12 12"></path>
-                    </svg>
                     <p class="font-bold text-base sm:text-lg" style="color: var(--text-main);">活動照片 3 — 期初說明會大合照</p>
                     <p class="text-xs sm:text-sm mt-1.5 px-3 py-1 rounded-full font-mono" style="background-color: var(--primary-soft); color: var(--text-muted);">請放入圖片：images/slide3.jpg</p>
                   </div>
@@ -750,13 +698,11 @@
 
           <!-- 下方三欄：最新消息 / 行事曆 / 聯絡資訊 -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <!-- ★ 修改點 1：最新消息內容 -->
             <div class="rounded-2xl p-5 border flex flex-col" style="background-color: var(--bg-card); border-color: var(--border-line);">
               <h3 class="notebook-heading text-base"><span>📢</span> 最新消息</h3>
               <div id="news-list" class="space-y-2.5 flex-1"></div>
             </div>
 
-            <!-- ★ 修改點 2：行事曆（修改 data-end-date 即可自動判斷是否加上刪除線） -->
             <div class="rounded-2xl p-5 border md:h-[360px] overflow-y-auto" style="background-color: var(--bg-card); border-color: var(--border-line);">
               <h3 class="notebook-heading text-base"><span>📅</span> 行事曆</h3>
               <ul class="space-y-2.5 text-sm">
@@ -787,7 +733,6 @@
               </ul>
             </div>
 
-            <!-- 聯絡資訊 -->
             <div class="rounded-2xl p-5 border md:h-[360px] overflow-y-auto" style="background-color: var(--bg-card); border-color: var(--border-line);">
               <h3 class="notebook-heading text-base"><span>📌</span> 聯絡資訊</h3>
               <div class="space-y-3 text-sm">
@@ -812,8 +757,6 @@
                     <div class="font-semibold">SG124</div>
                   </div>
                 </div>
-
-                <!-- ★ 修改點 3：LINE 連結 / QR Code 區塊（緊接在社辦位置下方） -->
                 <div class="p-3 rounded-xl border border-dashed text-center" style="border-color: var(--border-line); background-color: var(--bg-paper);">
                   <div class="text-xs font-semibold mb-1" style="color: var(--text-main);">💚 到LINE找膳膳</div>
                   <div class="text-xs" style="color: var(--text-muted);">（待放入網址 / QR Code）</div>
@@ -1062,8 +1005,7 @@
           <div>
             <h2 class="notebook-heading text-lg"><span>📝</span> 如何入社</h2>
             <div class="p-5 rounded-2xl border space-y-3 text-sm sm:text-base" style="background-color: var(--bg-card); border-color: var(--border-line);">
-              <p>• 參加每學期第一次社課「期初說明會」，聽完後有意願的同學現場繳交社費、填寫檢查班表與個人資料，
-                   即完成入社並加入社員 LINE 群組。</p>
+              <p>• 參加每學期第一次社課「期初說明會」，聽完後有意願的同學現場繳交社費、填寫檢查班表與個人資料，即完成入社並加入社員 LINE 群組。</p>
               <p>• 社費每學期<strong>新臺幣 200 元</strong>；於第一次學餐檢查前提出退社可退費 100%，開始檢查後退社則不予退費。</p>
             </div>
           </div>
@@ -1108,8 +1050,6 @@
              VIEW 6: 有事找膳膳 (AI 聊天機器人)
              =================================== -->
         <section id="view-chat" class="page-view">
-
-          <!-- 手機版專用頂部標題列 -->
           <div class="md:hidden flex items-center justify-between px-3.5 py-3 text-white flex-shrink-0" style="background-color: var(--primary);">
             <div class="flex items-center gap-2">
               <button type="button" onclick="navigateTo('home')" aria-label="返回首頁" class="w-8 h-8 rounded-full flex items-center justify-center bg-white/20 hover:bg-white/30 transition">
@@ -1135,44 +1075,27 @@
           </div>
 
           <div class="flex-1 grid grid-cols-1 md:grid-cols-12 gap-5 md:h-[560px] min-h-0">
-
-            <!-- 電腦版左欄：膳膳動態角色舞台（靠底對齊，圖片最下面緊貼底線） -->
+            <!-- 電腦版左欄：膳膳動態角色舞台（可戳膳膳）+ 快速提問 -->
             <div class="hidden md:flex md:col-span-5 flex-col gap-4 h-full min-h-0">
-              <div id="mascot-stage" data-state="idle" class="mascot-stage rounded-2xl px-4 pt-4 pb-0 flex flex-col items-center justify-end relative h-[225px] flex-shrink-0 overflow-hidden">
+              <div
+                id="mascot-stage"
+                data-state="idle"
+                role="button"
+                tabindex="0"
+                aria-label="戳一下膳膳，切換不同動作"
+                title="點我戳一下膳膳！"
+                onclick="pokeMascot()"
+                onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();pokeMascot();}"
+                class="mascot-stage cursor-pointer rounded-2xl px-4 pt-4 pb-0 flex flex-col items-center justify-end relative h-[225px] flex-shrink-0 overflow-hidden"
+              >
                 <span id="mascot-badge" class="absolute top-3 left-3 text-[11px] font-bold px-2.5 py-0.5 rounded-full z-10" style="background-color: var(--accent); color: var(--accent-text);">待機中 ✨</span>
                 <span id="mascot-fx" class="absolute top-4 right-5 text-xl transition-opacity duration-300 opacity-0 z-10">💭</span>
-
-                <!-- 膳膳連續動畫圖片（緊貼底部） -->
                 <img
                   id="mascot-img"
                   src="images/shanshan/wait/wait1.png"
                   alt="膳膳"
                   class="mascot-img block h-[195px] w-auto object-contain object-bottom"
                 />
-
-                <!-- 備用 Q 版膳膳 SVG（若圖片尚未放入資料夾時自動顯示） -->
-                <svg id="mascot-svg" class="hidden mascot-svg w-36 h-36 mb-2" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M108 46 C132 40, 142 74, 126 94 C118 82, 114 68, 106 60 Z" fill="#6E4B3A" stroke="#432C22" stroke-width="2.5"></path>
-                  <path d="M46 116 C46 98, 114 98, 114 116 L118 152 L42 152 Z" fill="#F5DA81" stroke="#432C22" stroke-width="2.5"></path>
-                  <path d="M56 106 L74 106 L74 152 L52 152 Z" fill="#324B6B" stroke="#432C22" stroke-width="2.5"></path>
-                  <path d="M86 106 L104 106 L108 152 L86 152 Z" fill="#324B6B" stroke="#432C22" stroke-width="2.5"></path>
-                  <circle cx="80" cy="64" r="34" fill="#6E4B3A" stroke="#432C22" stroke-width="2.5"></circle>
-                  <path d="M48 56 C55 32, 105 32, 112 56" stroke="#85C7E8" stroke-width="7" stroke-linecap="round"></path>
-                  <path d="M80 34 L68 25 L71 39 Z" fill="#85C7E8" stroke="#432C22" stroke-width="2"></path>
-                  <path d="M80 34 L92 25 L89 39 Z" fill="#85C7E8" stroke="#432C22" stroke-width="2"></path>
-                  <circle cx="80" cy="34" r="4" fill="#A6D9F2" stroke="#432C22" stroke-width="2"></circle>
-                  <circle cx="80" cy="70" r="28" fill="#FFE6D5" stroke="#432C22" stroke-width="2.5"></circle>
-                  <path d="M52 64 C56 44, 104 44, 108 64 C100 56, 92 54, 86 62 C82 54, 74 54, 68 62 C62 56, 56 58, 52 64 Z" fill="#6E4B3A" stroke="#432C22" stroke-width="2"></path>
-                  <ellipse cx="63" cy="77" rx="4.5" ry="2.5" fill="#F29E9E" opacity="0.65"></ellipse>
-                  <ellipse cx="97" cy="77" rx="4.5" ry="2.5" fill="#F29E9E" opacity="0.65"></ellipse>
-                  <circle cx="68" cy="71" r="3.5" fill="#432C22"></circle>
-                  <circle cx="69.2" cy="69.8" r="1.2" fill="#FFFFFF"></circle>
-                  <circle cx="92" cy="71" r="3.5" fill="#432C22"></circle>
-                  <circle cx="93.2" cy="69.8" r="1.2" fill="#FFFFFF"></circle>
-                  <path d="M74 80 Q80 86 86 80" stroke="#432C22" stroke-width="2.2" stroke-linecap="round" fill="none"></path>
-                  <rect x="64" y="118" width="32" height="24" rx="4" fill="#9BB3C4" stroke="#432C22" stroke-width="2.2"></rect>
-                  <circle cx="80" cy="130" r="3" fill="#FFFFFF" opacity="0.7"></circle>
-                </svg>
               </div>
 
               <div class="rounded-2xl border flex-1 flex flex-col overflow-hidden min-h-0" style="background-color: var(--bg-card); border-color: var(--border-line);">
@@ -1223,11 +1146,11 @@
                   </div>
                   <div class="max-w-[82%] space-y-2.5">
                     <div class="px-4 py-3 rounded-2xl rounded-tl-sm text-sm leading-relaxed shadow-sm" style="background-color: var(--primary-soft); color: var(--text-main);">
-                       <p>嗨嗨～我是膳膳！🍱 淡江大學膳督團的專屬小幫手。想知道怎麼加入社團、學餐檢查都在做什麼，或是想了解健康飲食 DIY 活動，都可以問我喔！✨</p>
-                       <button type="button" onclick="speakText(this, '嗨嗨～我是膳膳！淡江大學膳督團的專屬小幫手。想知道怎麼加入社團、學餐檢查都在做什麼，或是想了解健康飲食 DIY 活動，都可以問我喔！')" aria-label="朗讀此則訊息" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full border transition hover:opacity-80" style="border-color: var(--primary); color: var(--primary); background-color: var(--bg-card);">
-                         🔊 朗讀
-                       </button>
-                     </div>
+                      <p>嗨嗨～我是膳膳！🍱 淡江大學膳督團的專屬小幫手。想知道怎麼加入社團、學餐檢查都在做什麼，或是想了解健康飲食 DIY 活動，都可以問我喔！✨</p>
+                      <button type="button" onclick="speakText(this, '嗨嗨～我是膳膳！淡江大學膳督團的專屬小幫手。想知道怎麼加入社團、學餐檢查都在做什麼，或是想了解健康飲食 DIY 活動，都可以問我喔！')" aria-label="朗讀此則訊息" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full border transition hover:opacity-80" style="border-color: var(--primary); color: var(--primary); background-color: var(--bg-card);">
+                        🔊 朗讀
+                      </button>
+                    </div>
                     <div class="md:hidden flex flex-wrap gap-1.5">
                       <button type="button" onclick="sendQuickQuestion('我想加入膳督團，請問報名方式跟社費是多少？')" class="px-3 py-1.5 rounded-full text-xs font-medium border transition active:scale-95" style="border-color: var(--primary); color: var(--primary); background-color: var(--bg-card);">報名方式與社費</button>
                       <button type="button" onclick="sendQuickQuestion('學餐檢查有哪些組別和地點？')" class="px-3 py-1.5 rounded-full text-xs font-medium border transition active:scale-95" style="border-color: var(--primary); color: var(--primary); background-color: var(--bg-card);">檢查組別與地點</button>
@@ -1261,7 +1184,6 @@
                 </button>
               </form>
             </div>
-
           </div>
         </section>
 
@@ -1423,9 +1345,9 @@
         <li>• <strong>翻頁與返回上一步</strong>：可點右側索引標籤、上方按鈕或手機版上方頁籤切換頁面；切換過頁面後，上方導覽列會出現「返回上一步」按鈕，點一下即可回到前一頁。</li>
         <li>• <strong>鍵盤操作方式</strong>：按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Tab</kbd> 可依序移動焦點至下一個按鈕或連結（第一下會出現「跳到主要內容」）；按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Shift</kbd> + <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Tab</kbd> 可往前一個焦點移動；按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Enter</kbd> 或 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Space</kbd> 即可啟動按鈕、展開最新消息、作答小測驗或觸發「返回上一步」。</li>
         <li>• <strong>最新消息</strong>：點選公告標題會直接在下方延伸展開照片與內文，按右上角「✕」即可收合，不會另開新視窗。</li>
-        <li>• <strong>有事找膳膳</strong>：可打字、點選左側或下方快速提問，或按麥克風語音發問；膳膳每則回覆下方都有「🔊 朗讀」按鈕可聽語音。</li>
+        <li>• <strong>有事找膳膳</strong>：可打字、點選左側或下方快速提問，或按麥克風語音發問；也可以戳一下膳膳切換精靈圖動作，每則回覆下方都有「🔊 朗讀」可聽語音。</li>
         <li>• <strong>顯示與聲音調整</strong>：頂部可調整字體大小（<code>A-</code> / <code>A+</code>）與深淺色模式；右下角可開關背景音樂、調整音量與開關翻頁音效。</li>
-        <li>• <strong>手機版</strong>：首頁、有事找膳膳、聯絡我們、操作指引以及調整音量都在右上角選單內哦。</li>
+        <li>• <strong>手機版</strong>：首頁、有事找膳膳、聯絡我們、操作指引以及音樂／音效開關都在右上角選單內哦。</li>
       </ul>
 
       <div class="pt-2 flex items-center justify-between gap-3">
@@ -1449,27 +1371,41 @@
        ========================================= -->
   <script>
     /* =========================================
-1. API 與全域設定
+       1. API 與全域設定
        ========================================= */
-    // ★ 修改點 4：ChatPDF API 設定（若將 API Key 清空會自動切換回離線體驗回覆）
     const CHATPDF_API_KEY = 'sec_8dNtsByaSZqfrpYlvKEHvw5zv3ET247b';
     const CHATPDF_SOURCE_ID = 'cha_uscugEUnPJlFLl7vvjSEJ';
 
-    // ★ 修改點 5：膳膳精靈圖資料夾路徑、副檔名與各動作張數設定
     const MASCOT_BASE_PATH = 'images/shanshan';
     const MASCOT_IMG_EXT = 'png';
 
-    // 左邊是系統固定的狀態名稱（不要改），右邊 folder 可自由換成你的資料夾名
+    // 對應資料夾：eat, cheer, hi, photo, sleep, surprise, think, wait, check
     const MASCOT_ANIMS = {
-      idle:      { folder: 'wait',     frames: 4, speed: 180 },
-      hi:        { folder: 'hi',       frames: 6, speed: 140 },
-      thinking:  { folder: 'think',    frames: 6, speed: 150 },
-      waving:    { folder: 'hi',       frames: 6, speed: 130 },
-      surprised: { folder: 'surprise', frames: 6, speed: 120 },
-      sleepy:    { folder: 'sleep',    frames: 6, speed: 250 },
-      photo:     { folder: 'photo',    frames: 6, speed: 140 },
-      check:     { folder: 'check',    frames: 6, speed: 140 }
+      idle:     { folder: 'wait',     frames: 4, speed: 180, label: '待機中 ✨',        fx: '' },
+      hi:       { folder: 'hi',       frames: 6, speed: 140, label: '嗨嗨～歡迎！👋',   fx: '👋' },
+      thinking: { folder: 'think',    frames: 6, speed: 150, label: '膳膳思考中...',    fx: '💭' },
+      waving:   { folder: 'hi',       frames: 6, speed: 130, label: '回答完成！🎉',    fx: '✨' },
+      eat:      { folder: 'eat',      frames: 6, speed: 150, label: '開動囉～好香！🍽️', fx: '🍽️' },
+      cheer:    { folder: 'cheer',    frames: 6, speed: 140, label: '幫你加油打氣！📣', fx: '📣' },
+      photo:    { folder: 'photo',    frames: 6, speed: 140, label: '拍照留念！📸',     fx: '📸' },
+      check:    { folder: 'check',    frames: 6, speed: 140, label: '稽核檢查中！📋',   fx: '🔍' },
+      sleep:    { folder: 'sleep',    frames: 6, speed: 240, label: '有點想睡覺...',    fx: '💤' },
+      surprise: { folder: 'surprise', frames: 6, speed: 120, label: '哇～好驚訝！',      fx: '❗' }
     };
+
+    const KEYWORD_ANIM_RULES = [
+      { state: 'eat',      keywords: ['吃', '美食', '料理', 'diy', '零食', '飲料', '好吃', '午餐', '晚餐', '下午茶', '餐具', '環保餐具'] },
+      { state: 'photo',    keywords: ['拍照', '照片', '打卡', '留證', '相機', '輪播'] },
+      { state: 'check',    keywords: ['檢查', '稽核', '衛生', '試紙', '油炸', '過氧化氫', '食材', '班表', '補班', '請假', '代班'] },
+      { state: 'cheer',    keywords: ['加油', '太棒', '讚', '恭喜', '認證', '獎勵金', '500', '全勤', '加入', '報名', '歡迎'] },
+      { state: 'surprise', keywords: ['哇', '真的嗎', '蛤', '驚訝', '竟然', '不會吧', '天啊', '退費'] },
+      { state: 'sleep',    keywords: ['睡', '累', '睏', '晚安', '休息', '放空'] },
+      { state: 'hi',       keywords: ['你好', '嗨', '哈囉', '早安', '午安', '在嗎', '請問'] }
+    ];
+
+    const POKE_STATES = ['hi', 'eat', 'cheer', 'photo', 'check', 'surprise', 'sleep'];
+    let pokeIndex = 0;
+    let mascotRevertTimer = null;
 
     const PAGE_ORDER = {
       home: 0,
@@ -1482,7 +1418,7 @@
     };
 
     let currentView = null;
-    let viewHistory = []; // 記錄瀏覽過的頁面順序
+    let viewHistory = [];
     let currentFontSize = 16;
     let idleTimer = null;
     let flipTimer = null;
@@ -1491,10 +1427,10 @@
     let mascotAnimTimer = null;
     let mascotGreetingTimer = null;
     let mascotFrame = 1;
-    let chatHistory = []; // 記錄最近對話，讓 API 有上下文記憶
+    let chatHistory = [];
 
     /* =========================================
-2. 活頁筆記本 3D 翻頁切換邏輯
+       2. 活頁筆記本 3D 翻頁切換邏輯
        ========================================= */
     function cleanupFlipAnimation(finalizePending) {
       if (flipTimer) {
@@ -1647,7 +1583,7 @@
     }
 
     /* =========================================
-3. 無障礙：字體縮放與深淺色模式
+       3. 無障礙：字體縮放與深淺色模式
        ========================================= */
     function changeFontSize(delta) {
       currentFontSize = Math.min(20, Math.max(13, currentFontSize + delta));
@@ -1667,7 +1603,7 @@
     }
 
     /* =========================================
-4. 自訂 Toast 提示
+       4. 自訂 Toast 提示
        ========================================= */
     let toastTimeout = null;
     function showToast(message) {
@@ -1684,7 +1620,7 @@
     }
 
     /* =========================================
-5. 首頁活動照片輪播
+       5. 首頁活動照片輪播
        ========================================= */
     let currentSlide = 0;
     const totalSlides = 3;
@@ -1728,7 +1664,7 @@
     }
 
     /* =========================================
-6. 學餐檢查：5 題互動小小測驗 + 印章系統
+       6. 學餐檢查：5 題互動小小測驗 + 印章系統
        ========================================= */
     const quizData = [
       {
@@ -1854,7 +1790,7 @@
         fb.setAttribute('aria-live', 'polite');
         fb.style.backgroundColor = isCorrect ? 'rgba(107, 163, 135, 0.14)' : 'rgba(217, 138, 138, 0.14)';
         fb.innerHTML = `<strong>${isCorrect ? '✅ 答對了！' : `❌ 正確答案是 (${item.answer})`}</strong> ${item.explanation}`;
-        fb.focus(); // 防止選項鎖定後鍵盤焦點跑掉
+        fb.focus();
       }
 
       const answeredCount = Object.keys(quizAnswers).length;
@@ -1904,62 +1840,65 @@
     }
 
     /* =========================================
-7. 膳膳 AI 聊天室 + 連續精靈圖動畫 + 語音輸入
+       7. 膳膳 AI 聊天室 + 8組精靈圖動畫 + 戳膳膳 + 關鍵字觸發 + 語音
        ========================================= */
     function setMascotState(state) {
       const stage = document.getElementById('mascot-stage');
       const badge = document.getElementById('mascot-badge');
       const fx = document.getElementById('mascot-fx');
       const imgEl = document.getElementById('mascot-img');
-      const svgEl = document.getElementById('mascot-svg');
-      if (!stage || !badge || !fx) return;
+      if (!stage || !badge || !fx || !imgEl) return;
 
+      const anim = MASCOT_ANIMS[state] || MASCOT_ANIMS.idle;
       stage.setAttribute('data-state', state);
-      const map = {
-        idle:      { text: '待機中 ✨', fx: '', showFx: false },
-        hi:        { text: '嗨嗨～歡迎！👋', fx: '👋', showFx: true },
-        thinking:  { text: '膳膳思考中...', fx: '💭', showFx: true },
-        waving:    { text: '回答完成！🎉', fx: '✨', showFx: true },
-        surprised: { text: '哎呀出錯了！', fx: '❗', showFx: true },
-        sleepy:    { text: '有點想睡覺...', fx: '💤', showFx: true },
-        photo:     { text: '拍照留念！📸', fx: '📸', showFx: true },
-        check:     { text: '稽核檢查中！📋', fx: '🔍', showFx: true }
-      };
-      const cfg = map[state] || map.idle;
-      badge.textContent = cfg.text;
-      fx.textContent = cfg.fx;
-      fx.style.opacity = cfg.showFx ? '1' : '0';
+      badge.textContent = anim.label || '待機中 ✨';
+      fx.textContent = anim.fx || '';
+      fx.style.opacity = anim.fx ? '1' : '0';
 
       clearInterval(mascotAnimTimer);
-      const anim = MASCOT_ANIMS[state] || MASCOT_ANIMS.idle;
-      if (!anim) return;
       mascotFrame = 1;
 
-      if (imgEl) {
-        imgEl.onload = () => {
-          imgEl.classList.remove('hidden');
-          if (svgEl) svgEl.classList.add('hidden');
-        };
-        imgEl.onerror = () => {
-          clearInterval(mascotAnimTimer);
-          imgEl.classList.add('hidden');
-          if (svgEl) svgEl.classList.remove('hidden');
-        };
+      const playNextFrame = () => {
+        imgEl.src = `${MASCOT_BASE_PATH}/${anim.folder}/${anim.folder}${mascotFrame}.${MASCOT_IMG_EXT}`;
+        mascotFrame = (mascotFrame % anim.frames) + 1;
+      };
+      playNextFrame();
+      mascotAnimTimer = setInterval(playNextFrame, anim.speed);
+    }
 
-        const playNextFrame = () => {
-          imgEl.src = `${MASCOT_BASE_PATH}/${anim.folder}/${anim.folder}${mascotFrame}.${MASCOT_IMG_EXT}`;
-          mascotFrame = (mascotFrame % anim.frames) + 1;
-        };
-        playNextFrame();
-        mascotAnimTimer = setInterval(playNextFrame, anim.speed);
+    function triggerTemporaryMascot(state, duration = 3000) {
+      if (!MASCOT_ANIMS[state]) return;
+      clearTimeout(mascotRevertTimer);
+      setMascotState(state);
+      mascotRevertTimer = setTimeout(() => {
+        if (currentView === 'chat') {
+          setMascotState('idle');
+          resetIdleTimer();
+        }
+      }, duration);
+    }
+
+    function detectKeywordMascotState(text) {
+      const lower = text.toLowerCase();
+      for (const rule of KEYWORD_ANIM_RULES) {
+        if (rule.keywords.some(kw => lower.includes(kw.toLowerCase()))) {
+          return rule.state;
+        }
       }
+      return null;
+    }
+
+    function pokeMascot() {
+      const nextState = POKE_STATES[pokeIndex % POKE_STATES.length];
+      pokeIndex += 1;
+      triggerTemporaryMascot(nextState, 2800);
     }
 
     function resetIdleTimer() {
       clearTimeout(idleTimer);
       idleTimer = setTimeout(() => {
         if (currentView === 'chat') {
-          setMascotState('sleepy');
+          setMascotState('sleep');
         }
       }, 30000);
     }
@@ -2106,6 +2045,7 @@
       if (!trimmed) return;
 
       clearTimeout(mascotGreetingTimer);
+      clearTimeout(mascotRevertTimer);
       appendMessage('user', trimmed);
       setChatStatus('膳膳思考中...');
       setMascotState('thinking');
@@ -2115,7 +2055,6 @@
         let replyText = '';
 
         if (!CHATPDF_API_KEY) {
-          console.log('ℹ️ 目前為離線體驗模式（尚未填入 CHATPDF_API_KEY）');
           await new Promise(resolve => setTimeout(resolve, 750));
           replyText = getLocalDemoReply(trimmed);
         } else {
@@ -2125,7 +2064,6 @@
             '如果是詢問社團規定、活動、學餐檢查等具體資訊，請只根據知識庫回答，絕對禁止輸出任何來源引用標記（如 [T1]、[1]）；知識庫找不到的資訊不要亂猜，請引導對方親洽衛保組（M111）或私訊 IG（tkusdt_club）。' +
             '請用繁體中文親切活潑回答，控制在 3 到 5 句話內，可適度加入表情符號。\n\n問題：';
 
-          // 帶入最近 6 則歷史對話，讓膳膳具備上下文記憶
           const messagesPayload = [
             ...chatHistory.slice(-6),
             { role: 'user', content: systemPrompt + trimmed }
@@ -2149,24 +2087,21 @@
           }
 
           const data = await response.json();
-          console.log('✅ ChatPDF API 連線成功！回傳內容：', data);
           replyText = stripCitations(data.content || '');
 
-          // 儲存這輪對話到記憶中
           chatHistory.push({ role: 'user', content: trimmed });
           chatHistory.push({ role: 'assistant', content: replyText });
         }
 
         appendMessage('bot', replyText);
         setChatStatus('歡迎來到淡江大學膳食督導義務工作團！');
-        setMascotState('waving');
-        setTimeout(() => setMascotState('idle'), 2600);
+        const matchedState = detectKeywordMascotState(`${trimmed} ${replyText}`);
+        triggerTemporaryMascot(matchedState || 'waving', 3000);
       } catch (err) {
         console.error('❌ ChatPDF API 連線失敗：', err);
         appendMessage('bot', '哎呀，系統好像有點卡卡的！若有緊急問題，請親洽衛保組或私訊 IG：tkusdt_club！');
         setChatStatus('系統連線異常，請按 F12 查看 Console');
-        setMascotState('surprised');
-        setTimeout(() => setMascotState('idle'), 3500);
+        triggerTemporaryMascot('surprise', 3200);
       }
     }
 
@@ -2242,7 +2177,7 @@
     }
 
     /* =========================================
-8. 聯絡我們表單
+       8. 聯絡我們表單
        ========================================= */
     function handleContactSubmit(e) {
       e.preventDefault();
@@ -2525,7 +2460,7 @@
     }
 
     /* =========================================
-9. 初始化（行事曆過期劃掉 + 膳膳待機動畫）
+       9. 初始化
        ========================================= */
     function markEndedEvents() {
       const now = new Date();
