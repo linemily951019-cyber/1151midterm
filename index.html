@@ -1325,7 +1325,6 @@
         class="floating-corner-btn px-3.5 py-2.5 rounded-full border text-xs sm:text-sm font-bold flex items-center gap-1.5"
         style="background-color: var(--primary); border-color: var(--primary); color: #FFFFFF;"
       >
-        <span>🎛️</span>
         <span>音效／音樂</span>
       </button>
     </div>
@@ -1356,17 +1355,28 @@
         >✕</button>
       </div>
 
-      <ul class="space-y-2.5 text-sm leading-relaxed">
-        <li>• <strong>翻頁與返回上一步</strong>：可點右側索引標籤、上方按鈕或手機版上方頁籤切換頁面；切換過頁面後，上方導覽列會出現「返回上一步」按鈕，點一下即可回到前一頁。</li>
-        <li>• <strong>鍵盤操作方式</strong>：按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Tab</kbd> 可依序移動焦點至下一個按鈕或連結（第一下會出現「跳到主要內容」）；按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Shift</kbd> + <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Tab</kbd> 可往前一個焦點移動；按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Enter</kbd> 或 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Space</kbd> 即可啟動按鈕、展開最新消息、作答小測驗或觸發「返回上一步」。</li>
+      <!-- 電腦／平板版操作指引 -->
+      <ul class="hidden md:block space-y-2.5 text-sm leading-relaxed">
+        <li>• <strong>翻頁與返回上一步</strong>：可點右側索引標籤或上方按鈕切換頁面；切換過頁面後，上方導覽列會出現「返回上一步」按鈕，點一下即可回到前一頁。</li>
+        <li>• <strong>鍵盤操作方式</strong>：按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Tab</kbd> 可依序移動焦點（第一下會出現「跳到主要內容」）；按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Shift</kbd> + <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Tab</kbd> 可往前移動；按 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Enter</kbd> 或 <kbd class="px-1.5 py-0.5 rounded border text-xs font-mono" style="background-color: var(--bg-card); border-color: var(--border-line);">Space</kbd> 即可啟動按鈕。</li>
         <li>• <strong>最新消息</strong>：點選公告標題會直接在下方延伸展開照片與內文，按右上角「✕」即可收合，不會另開新視窗。</li>
-        <li>• <strong>有事找膳膳</strong>：可打字、點選左側或下方快速提問，或按麥克風語音發問；也可以戳一下膳膳切換精靈圖動作，每則回覆下方都有「🔊 朗讀」可聽語音。</li>
-        <li>• <strong>顯示與聲音調整</strong>：頂部可調整字體大小（<code>A-</code> / <code>A+</code>）與深淺色模式；右下角可開關背景音樂、調整音量與開關翻頁音效。</li>
-        <li>• <strong>手機版</strong>：首頁、有事找膳膳、聯絡我們、操作指引以及音樂／音效開關都在右上角選單內哦。</li>
+        <li>• <strong>有事找膳膳</strong>：可打字、點選左側快速提問，或按麥克風語音發問；也可以戳一下膳膳切換精靈圖動作，每則回覆下方都有「🔊 朗讀」可聽語音。</li>
+        <li>• <strong>顯示與聲音調整</strong>：頂部可調整字體大小（<code>A-</code> / <code>A+</code>）與深淺色模式；左下角可開啟手機掃描 QR Code；右下角可開關背景音樂、調整音量與開關翻頁音效。</li>
+      </ul>
+
+      <!-- 手機版操作指引 -->
+      <ul class="md:hidden space-y-2.5 text-sm leading-relaxed">
+        <li>• <strong>頁面切換</strong>：可左右滑動上方頁籤切換各單元，或點右上角「☰」選單前往首頁、有事找膳膳與聯絡我們。</li>
+        <li>• <strong>最新消息</strong>：點選公告標題會直接在下方展開照片與內文，按右上角「✕」即可收合。</li>
+        <li>• <strong>有事找膳膳</strong>：可打字、點選快速提問按鈕，或按麥克風語音發問；每則回覆下方都有「🔊 朗讀」可聽語音。</li>
+        <li>• <strong>顯示與聲音調整</strong>：頂部可調整字體大小（<code>A-</code> / <code>A+</code>）與深淺色模式；背景音樂與翻頁音效開關在右上角「☰」選單內。</li>
       </ul>
 
       <div class="pt-2 flex items-center justify-between gap-3">
-        <span class="text-xs" style="color: var(--text-muted);">隨時可點左下角或右上角選單再次查看</span>
+        <span class="text-xs" style="color: var(--text-muted);">
+          <span class="hidden md:inline">隨時可點左下角「📖 操作指引」再次查看</span>
+          <span class="md:hidden">隨時可從右上角「☰」選單再次查看</span>
+        </span>
         <button
           type="button"
           onclick="closeGuideModal(true)"
@@ -1374,6 +1384,7 @@
           style="background-color: var(--accent); color: var(--accent-text);"
         >開始使用</button>
       </div>
+
     </div>
   </div>
 <!-- 手機掃描 QR Code 放大彈窗 -->
