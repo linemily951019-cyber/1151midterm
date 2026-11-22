@@ -1236,19 +1236,34 @@
     © 淡江大學膳食督導義務工作團（Diet Supervisory Volunteers Club）｜社辦：SG124｜衛保組：M111
   </footer>
 
-  <!-- 左下角：操作指引圖標按鈕 -->
-  <button
-    type="button"
-    id="guide-fab-btn"
-    onclick="openGuideModal()"
-    aria-label="開啟操作指引"
-    title="操作指引"
-    class="floating-corner-btn hidden md:flex fixed bottom-5 left-5 z-40 px-3.5 py-2.5 rounded-full border text-xs sm:text-sm font-bold items-center gap-1.5"
-    style="background-color: var(--bg-card); border-color: var(--primary); color: var(--text-main);"
-  >
-    <span>📖</span>
-    <span>操作指引</span>
-  </button>
+<!-- 左下角：手機掃描 QR Code + 操作指引（僅電腦與平板顯示） -->
+  <div class="hidden md:flex fixed bottom-5 left-5 z-40 flex-col items-start gap-2">
+    <button
+      type="button"
+      id="qr-fab-btn"
+      onclick="openQrModal()"
+      aria-label="放大檢視手機版 QR Code"
+      title="手機掃描開啟網站"
+      class="floating-corner-btn px-3.5 py-2.5 rounded-full border text-xs sm:text-sm font-bold flex items-center gap-1.5"
+      style="background-color: var(--accent); border-color: var(--accent); color: var(--accent-text);"
+    >
+      <span>📱</span>
+      <span>QR Code</span>
+    </button>
+
+    <button
+      type="button"
+      id="guide-fab-btn"
+      onclick="openGuideModal()"
+      aria-label="開啟操作指引"
+      title="操作指引"
+      class="floating-corner-btn px-3.5 py-2.5 rounded-full border text-xs sm:text-sm font-bold flex items-center gap-1.5"
+      style="background-color: var(--bg-card); border-color: var(--primary); color: var(--text-main);"
+    >
+      <span>📖</span>
+      <span>操作指引</span>
+    </button>
+  </div>
 
   <!-- 右下角：背景音樂 & 翻頁音效調整 -->
   <div class="hidden md:flex fixed bottom-5 right-5 z-40 flex-col items-end gap-2">
@@ -1361,7 +1376,45 @@
       </div>
     </div>
   </div>
+<!-- 手機掃描 QR Code 放大彈窗 -->
+  <div
+    id="qrcode-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="qrcode-modal-title"
+    onclick="if (event.target === this) closeQrModal();"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs"
+  >
+    <div
+      class="w-full max-w-xs sm:max-w-sm rounded-2xl border p-6 shadow-2xl text-center space-y-4"
+      style="background-color: var(--bg-paper); border-color: var(--border-line); color: var(--text-main);"
+    >
+      <div class="flex items-center justify-between border-b pb-3" style="border-color: var(--border-line);">
+        <h2 id="qrcode-modal-title" class="text-base font-bold flex items-center gap-1.5">
+          <span>📱</span> 手機掃描開啟
+        </h2>
+        <button
+          type="button"
+          onclick="closeQrModal()"
+          aria-label="關閉 QR Code 視窗"
+          class="w-8 h-8 rounded-full border flex items-center justify-center text-sm font-bold hover:opacity-75"
+          style="border-color: var(--border-line); background-color: var(--bg-card);"
+        >✕</button>
+      </div>
 
+      <div class="p-3 rounded-2xl bg-white inline-block shadow-sm border" style="border-color: var(--border-line);">
+        <img
+          src="images/qrcode.jpg"
+          alt="淡江大學膳食督導義務工作團網站 QR Code"
+          class="w-56 h-56 sm:w-64 sm:h-64 object-contain"
+        />
+      </div>
+
+      <p class="text-xs leading-relaxed" style="color: var(--text-muted);">
+        使用手機相機掃描上方 QR Code，即可在手機上瀏覽筆記本網站
+      </p>
+    </div>
+  </div>
   <div id="toast-box" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-2.5 rounded-full text-sm font-semibold shadow-xl transition-all duration-300 opacity-0 pointer-events-none translate-y-4" style="background-color: var(--text-main); color: var(--bg-card);">
     提示訊息
   </div>
@@ -2458,6 +2511,21 @@
       }
       const fab = document.getElementById('guide-fab-btn');
       if (fab && !fab.classList.contains('hidden')) fab.focus();
+    }
+    function openQrModal() {
+      const modal = document.getElementById('qrcode-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      const closeBtn = modal.querySelector('button[aria-label="關閉 QR Code 視窗"]');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeQrModal() {
+      const modal = document.getElementById('qrcode-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      const qrBtn = document.getElementById('qr-fab-btn');
+      if (qrBtn) qrBtn.focus();
     }
 
     /* =========================================
