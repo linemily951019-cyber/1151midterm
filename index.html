@@ -1162,9 +1162,9 @@
                 </div>
               </div>
 
-              <form id="chat-form" onsubmit="handleChatSubmit(event)" class="p-3 border-t flex items-center gap-2 flex-shrink-0" style="background-color: var(--bg-paper); border-color: var(--border-line);">
-                <button type="button" id="mic-btn" onclick="toggleVoiceInput()" aria-label="語音輸入" title="點擊開始語音輸入" class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 border transition hover:opacity-85" style="background-color: var(--bg-card); border-color: var(--border-line); color: var(--primary);">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <form id="chat-form" onsubmit="handleChatSubmit(event)" class="p-2 sm:p-3 border-t flex items-center gap-1.5 sm:gap-2 flex-shrink-0 w-full" style="background-color: var(--bg-paper); border-color: var(--border-line);">
+                <button type="button" id="mic-btn" onclick="toggleVoiceInput()" aria-label="語音輸入" title="點擊開始語音輸入" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 border transition hover:opacity-85" style="background-color: var(--bg-card); border-color: var(--border-line); color: var(--primary);">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 10v2a7 7 0 01-14 0v-2M12 19v4m-4 0h8"></path>
                   </svg>
@@ -1173,12 +1173,12 @@
                   id="chat-input"
                   type="text"
                   autocomplete="off"
-                  placeholder="請輸入你的問題... (可點擊麥克風講話)"
-                  class="flex-1 px-4 py-2.5 rounded-full border text-sm focus:outline-none focus:ring-2"
+                  placeholder="請輸入問題..."
+                  class="flex-1 min-w-0 w-full px-3 sm:px-4 py-2 sm:py-2.5 rounded-full border text-sm focus:outline-none focus:ring-2"
                   style="background-color: var(--bg-card); border-color: var(--border-line); color: var(--text-main);"
                 />
-                <button type="submit" aria-label="送出訊息" class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white shadow-sm transition hover:opacity-90 active:scale-95" style="background-color: var(--primary);">
-                  <svg class="w-5 h-5 translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <button type="submit" aria-label="送出訊息" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white shadow-sm transition hover:opacity-90 active:scale-95" style="background-color: var(--primary);">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5 translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
                   </svg>
                 </button>
